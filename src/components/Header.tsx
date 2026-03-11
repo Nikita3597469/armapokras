@@ -34,12 +34,12 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="shrink-0" aria-label="АрмаПокрас — главная">
           <Image
-            src="/logo.png"
+            src="/logo-transparent.png"
             alt="АрмаПокрас"
-            width={180}
-            height={60}
+            width={360}
+            height={120}
             priority
-            className="h-10 w-auto md:h-14"
+            className="h-20 w-auto md:h-28"
           />
         </Link>
 

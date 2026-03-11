@@ -10,7 +10,6 @@ import {
   YANDEX_MAP_EMBED_URL,
   YANDEX_MAP_LINK,
   GOOGLE_MAP_LINK,
-  GEO_LINK,
 } from "@/lib/constants";
 import { ServiceIcon } from "@/components/SvgIcons";
 import type { IconName } from "@/components/SvgIcons";
@@ -67,6 +66,12 @@ const PORTFOLIO_ITEMS = [
     title: "Покраска капота Hyundai Solaris",
     tag: "До → После",
   },
+  {
+    imageBefore: "/portfolio/IMG_2142.PNG",
+    imageAfter: "/portfolio/IMG_2142.PNG",
+    title: "Покраска джипа",
+    tag: "До → После",
+  },
 ];
 
 const REVIEWS = [
@@ -81,6 +86,54 @@ const REVIEWS = [
   {
     name: "Дмитрий В.",
     text: "Полная покраска Приоры. Сделали быстро и качественно, лучшее соотношение цена/качество в городе.",
+  },
+  {
+    name: "Сергей П.",
+    text: "Покрасил джип у Арама — результат превзошёл ожидания. Цвет ровный, без подтёков. Буду обращаться ещё.",
+  },
+  {
+    name: "Елена М.",
+    text: "Ремонт сколов и покраска бампера на Kia Rio. Сделали за день, выглядит как с завода. Спасибо!",
+  },
+  {
+    name: "Андрей Л.",
+    text: "Делал антикор на Приоре. Внимательно обработали все пороги и арки. Цена нормальная, качество отличное.",
+  },
+  {
+    name: "Ольга К.",
+    text: "Полировка фар и кузова на Hyundai. Фары как новые, кузов блестит. Очень благодарна мастеру.",
+  },
+  {
+    name: "Игорь Н.",
+    text: "Полная покраска в другой цвет. Подобрали краску точно, машина выглядит дорого. Рекомендую АрмаПокрас.",
+  },
+  {
+    name: "Татьяна В.",
+    text: "Покраска капота после ДТП. Попадание в цвет идеальное, не отличить от родного. Довольна на 100%.",
+  },
+  {
+    name: "Виктор С.",
+    text: "Не первый раз обращаюсь. Каждый раз делают качественно и в срок. Лучшая автомалярка в Пятигорске.",
+  },
+  {
+    name: "Наталья Г.",
+    text: "Полировка и защита ЛКП на новой Ладе. Бережная работа, никаких царапин. Спасибо за профессионализм!",
+  },
+  {
+    name: "Павел Д.",
+    text: "Покрасили крыло и дверь на Renault Logan. Быстро, недорого, цвет совпал. Буду советовать знакомым.",
+  },
+  {
+    name: "Марина Т.",
+    text: "Делали локальный ремонт царапин на бампере. Точечная покраска — не видно, что было повреждение.",
+  },
+  {
+    name: "Алексей Ж.",
+    text: "Пригонял джип на полную покраску. Обсудили все нюансы, сделали в оговорённые сроки. Результат отличный.",
+  },
+  {
+    name: "Юлия Р.",
+    text: "Покраска элементов кузова на Solaris. Честные цены, никаких доплат. Машина как новенькая, спасибо!",
   },
 ];
 
@@ -105,14 +158,17 @@ export default function Home() {
   return (
     <main>
       {/* Hero Section */}
-      <section
-        className="relative min-h-[90vh] flex items-center justify-center"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1494976388531-d1058494ceb8?w=1920&q=80')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Фон ПК */}
+        <div
+          className="absolute inset-0 hidden md:block bg-cover bg-center"
+          style={{ backgroundImage: "url('/hero-desktop.png')" }}
+        />
+        {/* Фон мобильная */}
+        <div
+          className="absolute inset-0 block md:hidden bg-cover bg-center"
+          style={{ backgroundImage: "url('/hero-mobile.png')" }}
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/40" />
         <div className="relative z-10 container-custom text-center px-4">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 max-w-4xl mx-auto">
@@ -311,16 +367,6 @@ export default function Home() {
             {ADDRESS}
           </p>
           <div className="flex flex-wrap justify-center gap-3 mb-10">
-            <a
-              href={GEO_LINK}
-              className="btn-primary inline-flex items-center gap-2"
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              Построить маршрут
-            </a>
             <a
               href={YANDEX_MAP_LINK}
               target="_blank"

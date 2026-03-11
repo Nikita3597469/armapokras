@@ -25,11 +25,11 @@ export default function Footer() {
           <div>
             <Link href="/" aria-label={`${SITE_NAME} — главная`}>
               <Image
-                src="/logo.png"
+                src="/logo-transparent.png"
                 alt={SITE_NAME}
-                width={160}
-                height={54}
-                className="h-12 w-auto brightness-0 invert"
+                width={320}
+                height={108}
+                className="h-14 w-auto md:h-16"
               />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-gray-400">
