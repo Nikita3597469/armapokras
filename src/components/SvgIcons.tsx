@@ -2,6 +2,7 @@ import type { SVGProps } from "react";
 
 const defaultClassName = "w-8 h-8";
 
+/** Покраска — кисть / краскопульт */
 export function IconSpray(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -9,21 +10,21 @@ export function IconSpray(props: SVGProps<SVGSVGElement>) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth="1.75"
       strokeLinecap="round"
       strokeLinejoin="round"
       className={defaultClassName}
       aria-hidden
       {...props}
     >
-      <path d="M8 6v12" />
-      <path d="M8 12h10" />
-      <circle cx="20" cy="12" r="2" />
-      <path d="M8 15h2v3" />
+      <path d="M12 3v4l-4 14h8L12 7V3z" />
+      <path d="M9 7h6" />
+      <path d="M8 21h8" />
     </svg>
   );
 }
 
+/** Полировка — полировочный круг */
 export function IconPolish(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -31,15 +32,16 @@ export function IconPolish(props: SVGProps<SVGSVGElement>) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth="1.75"
       strokeLinecap="round"
       strokeLinejoin="round"
       className={defaultClassName}
       aria-hidden
       {...props}
     >
-      <circle cx="12" cy="12" r="10" />
-      <circle cx="14" cy="10" r="4" fill="currentColor" opacity="0.4" />
+      <circle cx="12" cy="12" r="9" />
+      <circle cx="12" cy="12" r="5" />
+      <circle cx="10" cy="10" r="1.5" fill="currentColor" opacity="0.5" />
     </svg>
   );
 }
@@ -51,7 +53,7 @@ export function IconShield(props: SVGProps<SVGSVGElement>) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth="1.75"
       strokeLinecap="round"
       strokeLinejoin="round"
       className={defaultClassName}
@@ -63,6 +65,7 @@ export function IconShield(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+/** Автомобиль — вид сбоку */
 export function IconCar(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -70,15 +73,15 @@ export function IconCar(props: SVGProps<SVGSVGElement>) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth="1.75"
       strokeLinecap="round"
       strokeLinejoin="round"
       className={defaultClassName}
       aria-hidden
       {...props}
     >
-      <path d="M5 17h14v-5H5v5z" />
-      <path d="M5 12l2-4h10l2 4" />
+      <path d="M5 17h14a1 1 0 001-1v-3l-1.5-4h-11L4 13v3a1 1 0 001 1z" />
+      <path d="M5 13l1.5-4h11L19 13" />
       <circle cx="7.5" cy="17" r="1.5" />
       <circle cx="16.5" cy="17" r="1.5" />
     </svg>
