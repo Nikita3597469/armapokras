@@ -7,6 +7,10 @@ import {
   PHONE_RAW,
   ADDRESS,
   SERVICES,
+  YANDEX_MAP_EMBED_URL,
+  YANDEX_MAP_LINK,
+  GOOGLE_MAP_LINK,
+  GEO_LINK,
 } from "@/lib/constants";
 import { ServiceIcon } from "@/components/SvgIcons";
 import type { IconName } from "@/components/SvgIcons";
@@ -46,17 +50,20 @@ const ADVANTAGES: { icon: IconName; title: string; desc: string }[] = [
 
 const PORTFOLIO_ITEMS = [
   {
-    image: "/portfolio/IMG_2127.JPG",
+    imageBefore: "/portfolio/IMG_2127.JPG",
+    imageAfter: "/portfolio/IMG_2128.JPG",
     title: "Полная покраска Лада Приора (серебро)",
     tag: "До → После",
   },
   {
-    image: "/portfolio/IMG_2141.jpg",
+    imageBefore: "/portfolio/IMG_2140.jpg",
+    imageAfter: "/portfolio/IMG_2141.jpg",
     title: "Полная покраска Лада Приора (чёрная)",
     tag: "До → После",
   },
   {
-    image: "/portfolio/IMG_2142.PNG",
+    imageBefore: "/portfolio/IMG_2142.PNG",
+    imageAfter: "/portfolio/IMG_2124.jpg",
     title: "Покраска капота Hyundai Solaris",
     tag: "До → После",
   },
@@ -101,7 +108,7 @@ export default function Home() {
       <section
         className="relative min-h-[90vh] flex items-center justify-center"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=1920&q=80')`,
+          backgroundImage: `url('https://images.unsplash.com/photo-1494976388531-d1058494ceb8?w=1920&q=80')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -194,18 +201,30 @@ export default function Home() {
         <div className="container-custom">
           <h2 className="heading-2 text-center mb-4">Примеры работ</h2>
           <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-12" />
+          <p className="text-gray-500 text-center text-sm mb-8">
+            Наведите на карточку, чтобы увидеть результат
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {PORTFOLIO_ITEMS.map((item) => (
               <article key={item.title} className="card group">
                 <div className="relative h-64 overflow-hidden">
+                  {/* Нижний слой — «после» */}
                   <Image
-                    src={item.image}
-                    alt={item.title}
+                    src={item.imageAfter}
+                    alt={`${item.title} — после`}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  <span className="absolute top-4 left-4 bg-accent text-white text-sm font-semibold px-3 py-1 rounded-full">
+                  {/* Верхний слой — «до», при наведении исчезает */}
+                  <Image
+                    src={item.imageBefore}
+                    alt={`${item.title} — до`}
+                    fill
+                    className="absolute inset-0 object-cover scale-105 group-hover:scale-110 transition-all duration-500 group-hover:opacity-0"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <span className="absolute top-4 left-4 z-10 bg-accent text-white text-sm font-semibold px-3 py-1 rounded-full">
                     {item.tag}
                   </span>
                 </div>
@@ -288,12 +307,40 @@ export default function Home() {
         <div className="container-custom">
           <h2 className="heading-2 text-center mb-4">Как нас найти</h2>
           <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-6" />
-          <p className="text-gray-600 text-center text-lg mb-10">
+          <p className="text-gray-600 text-center text-lg mb-4">
             {ADDRESS}
           </p>
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            <a
+              href={GEO_LINK}
+              className="btn-primary inline-flex items-center gap-2"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              Построить маршрут
+            </a>
+            <a
+              href={YANDEX_MAP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline inline-flex items-center gap-2"
+            >
+              Яндекс.Карты
+            </a>
+            <a
+              href={GOOGLE_MAP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline inline-flex items-center gap-2"
+            >
+              Google Карты
+            </a>
+          </div>
           <div className="rounded-2xl overflow-hidden shadow-lg">
             <iframe
-              src="https://yandex.ru/map-widget/v1/?ll=43.06%2C44.038&z=16&pt=43.06%2C44.038%2Cpm2rdm"
+              src={YANDEX_MAP_EMBED_URL}
               width="100%"
               height={400}
               style={{ border: 0 }}

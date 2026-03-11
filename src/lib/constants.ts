@@ -7,6 +7,18 @@ export const WHATSAPP_LINK = `https://wa.me/${PHONE_RAW}`;
 export const ADDRESS = "г. Пятигорск, Московская ул., 31";
 export const ADDRESS_FULL =
   "Ставропольский край, г. Пятигорск, Московская улица, 31";
+
+/** Координаты для карты: широта, долгота */
+export const MAP_LAT = 44.048374;
+export const MAP_LON = 43.058821;
+/** URL для iframe Яндекс.Карт (ll и pt: долгота, широта) */
+export const YANDEX_MAP_EMBED_URL = `https://yandex.ru/map-widget/v1/?ll=${MAP_LON}%2C${MAP_LAT}&z=16&pt=${MAP_LON}%2C${MAP_LAT}%2Cpm2rdm`;
+/** Открыть точку в Яндекс.Картах (построить маршрут можно в приложении) */
+export const YANDEX_MAP_LINK = `https://yandex.ru/maps/?pt=${MAP_LON},${MAP_LAT}&z=16`;
+/** Открыть в Google Картах */
+export const GOOGLE_MAP_LINK = `https://www.google.com/maps?q=${MAP_LAT},${MAP_LON}`;
+/** Универсальная ссылка geo: — на телефоне откроет приложение карт по умолчанию */
+export const GEO_LINK = `geo:${MAP_LAT},${MAP_LON}`;
 export const EMAIL = "info@armapokras.ru";
 export const WORKING_HOURS = "Пн–Сб: 9:00–19:00, Вс: выходной";
 export const OWNER = "Арам Хачатурян";

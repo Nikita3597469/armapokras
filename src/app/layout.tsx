@@ -78,8 +78,8 @@ const jsonLd = {
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 44.038,
-    longitude: 43.06,
+    latitude: 44.048374,
+    longitude: 43.058821,
   },
   url: "https://armapokras.vercel.app",
   image: "/logo.png",

@@ -16,13 +16,10 @@ export function IconSpray(props: SVGProps<SVGSVGElement>) {
       aria-hidden
       {...props}
     >
-      <path d="M3 3h2v4H3z" />
-      <path d="M7 3h2v4H7z" />
-      <path d="M11 3h2v4h-2z" />
-      <path d="M5 9v12h14V9" />
-      <path d="M12 13h4" />
-      <path d="M12 17h4" />
-      <path d="M7 9h10v2H7z" />
+      <path d="M8 6v12" />
+      <path d="M8 12h10" />
+      <circle cx="20" cy="12" r="2" />
+      <path d="M8 15h2v3" />
     </svg>
   );
 }
@@ -42,8 +39,7 @@ export function IconPolish(props: SVGProps<SVGSVGElement>) {
       {...props}
     >
       <circle cx="12" cy="12" r="10" />
-      <path d="M12 6v6l4 2" />
-      <path d="M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z" fill="currentColor" opacity="0.3" />
+      <circle cx="14" cy="10" r="4" fill="currentColor" opacity="0.4" />
     </svg>
   );
 }
