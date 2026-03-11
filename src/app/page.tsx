@@ -67,8 +67,8 @@ const PORTFOLIO_ITEMS = [
     tag: "До → После",
   },
   {
-    imageBefore: "/portfolio/IMG_2142.PNG",
-    imageAfter: "/portfolio/IMG_2142.PNG",
+    imageBefore: "/portfolio/IMG_21442.jpg",
+    imageAfter: "/portfolio/IMG_21442.jpg",
     title: "Покраска джипа",
     tag: "До → После",
   },

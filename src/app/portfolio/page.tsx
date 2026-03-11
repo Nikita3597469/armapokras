@@ -53,18 +53,24 @@ const PORTFOLIO_ITEMS: PortfolioItem[] = [
   },
   {
     id: 7,
+    title: "Покраска джипа",
+    category: "Покраска",
+    image: "/portfolio/IMG_21442.jpg",
+  },
+  {
+    id: 8,
     title: "Полировка фар",
     category: "Полировка",
     image: "/portfolio/IMG_2134.jpg",
   },
   {
-    id: 8,
+    id: 9,
     title: "Полировка капота (процесс)",
     category: "Полировка",
     image: "/portfolio/IMG_2136.PNG",
   },
   {
-    id: 9,
+    id: 10,
     title: "Полировка кузова",
     category: "Полировка",
     image: "/portfolio/IMG_2135.PNG",

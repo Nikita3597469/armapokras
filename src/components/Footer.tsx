@@ -23,13 +23,17 @@ export default function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Column 1 — Logo & description */}
           <div>
-            <Link href="/" aria-label={`${SITE_NAME} — главная`}>
+            <Link
+              href="/"
+              aria-label={`${SITE_NAME} — главная`}
+              className="inline-block rounded-xl bg-white/95 px-4 py-3 shadow-md"
+            >
               <Image
                 src="/logo-transparent.png"
                 alt={SITE_NAME}
                 width={320}
                 height={108}
-                className="h-14 w-auto md:h-16"
+                className="h-12 w-auto md:h-14"
               />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-gray-400">

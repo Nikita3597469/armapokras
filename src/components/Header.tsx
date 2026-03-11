@@ -43,17 +43,22 @@ export default function Header() {
           />
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Основная навигация">
-          {NAV_LINKS.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className="relative py-1 text-sm font-medium text-primary transition-colors hover:text-accent after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
-            >
-              {label}
-            </Link>
-          ))}
+        {/* Desktop nav — листается по горизонтали, видно не все сразу */}
+        <nav
+          className="hidden lg:flex lg:flex-1 lg:min-w-0 lg:max-w-md lg:justify-center lg:overflow-hidden"
+          aria-label="Основная навигация"
+        >
+          <div className="flex items-center gap-6 overflow-x-auto overflow-y-hidden scroll-smooth py-1 [scrollbar-width:thin]">
+            {NAV_LINKS.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className="relative shrink-0 py-1 text-sm font-medium text-primary transition-colors hover:text-accent after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
         </nav>
 
         {/* Desktop contacts */}
@@ -115,14 +120,14 @@ export default function Header() {
         aria-hidden="true"
       />
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — меню листается */}
       <nav
         className={`fixed right-0 top-0 z-40 flex h-full w-72 flex-col bg-white pt-20 shadow-2xl transition-transform duration-300 lg:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
         aria-label="Мобильная навигация"
       >
-        <div className="flex flex-col gap-1 px-6">
+        <div className="flex flex-1 flex-col gap-1 overflow-y-auto px-6">
           {NAV_LINKS.map(({ href, label }) => (
             <Link
               key={href}
