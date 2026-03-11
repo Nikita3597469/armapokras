@@ -59,6 +59,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://armapokras.vercel.app",
   },
+  icons: {
+    icon: "/icon.jpg",
+    apple: "/apple-icon.jpg",
+  },
 };
 
 const jsonLd = {
