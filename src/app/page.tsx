@@ -13,6 +13,7 @@ import {
 } from "@/lib/constants";
 import { ServiceIcon } from "@/components/SvgIcons";
 import type { IconName } from "@/components/SvgIcons";
+import ReviewsCarousel from "@/components/ReviewsCarousel";
 
 const ADVANTAGES: { icon: IconName; title: string; desc: string }[] = [
   {
@@ -136,23 +137,6 @@ const REVIEWS = [
     text: "Покраска элементов кузова на Solaris. Честные цены, никаких доплат. Машина как новенькая, спасибо!",
   },
 ];
-
-function StarRating() {
-  return (
-    <div className="flex gap-1 text-yellow-400" aria-label="5 из 5 звёзд">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <svg
-          key={i}
-          className="w-5 h-5 fill-current"
-          viewBox="0 0 20 20"
-          aria-hidden="true"
-        >
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
-      ))}
-    </div>
-  );
-}
 
 export default function Home() {
   return (
@@ -300,35 +284,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Reviews Section */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <h2 className="heading-2 text-center mb-4">
-            Отзывы наших клиентов
-          </h2>
-          <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-12" />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {REVIEWS.map((review) => (
-              <article key={review.name} className="card p-8">
-                <StarRating />
-                <p className="text-gray-600 leading-relaxed mt-4 mb-6 italic">
-                  &ldquo;{review.text}&rdquo;
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center">
-                    <span className="text-accent font-bold text-sm">
-                      {review.name.charAt(0)}
-                    </span>
-                  </div>
-                  <span className="font-semibold text-primary">
-                    {review.name}
-                  </span>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Reviews Carousel */}
+      <ReviewsCarousel reviews={REVIEWS} />
 
       {/* CTA Section */}
       <section className="section-padding bg-primary">
