@@ -123,6 +123,9 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <head>
+        <link rel="icon" href="/icon.jpg?v=2" type="image/jpeg" />
+        <link rel="shortcut icon" href="/icon.jpg?v=2" type="image/jpeg" />
+        <link rel="apple-touch-icon" href="/apple-icon.jpg?v=2" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
