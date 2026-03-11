@@ -1,12 +1,16 @@
 import Link from "next/link";
 import { PRICE_DATA, WHATSAPP_LINK, SITE_NAME } from "@/lib/constants";
+import { ServiceIcon } from "@/components/SvgIcons";
 import type { Metadata } from "next";
+import type { IconName } from "@/components/SvgIcons";
 
 export const metadata: Metadata = {
   title: `Прайс-лист — ${SITE_NAME}`,
   description:
-    "Цены на покраску автомобилей, кузовной ремонт, полировку в Пятигорске. Ориентировочные цены — точная стоимость после осмотра.",
+    "Цены на покраску, полировку и доп. услуги в Пятигорске. Ориентировочные цены — точная стоимость после осмотра.",
 };
+
+const CATEGORY_ICONS: IconName[] = ["spray", "polish", "shield"];
 
 export default function PricePage() {
   return (
@@ -43,11 +47,8 @@ export default function PricePage() {
           {PRICE_DATA.map((category, catIdx) => (
             <section key={category.category} className="card p-6 md:p-8">
               <div className="mb-6 flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-xl">
-                  {catIdx === 0 && "🎨"}
-                  {catIdx === 1 && "🔧"}
-                  {catIdx === 2 && "✨"}
-                  {catIdx === 3 && "🛡️"}
+                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                  <ServiceIcon name={CATEGORY_ICONS[catIdx] ?? "spray"} className="w-6 h-6" />
                 </span>
                 <h2 className="heading-3">{category.category}</h2>
               </div>
@@ -90,7 +91,11 @@ export default function PricePage() {
         {/* Important note */}
         <div className="mt-12 rounded-2xl border border-amber-200 bg-amber-50 p-6 md:p-8">
           <div className="flex gap-4">
-            <div className="shrink-0 text-2xl">⚠️</div>
+            <div className="shrink-0">
+              <svg className="h-8 w-8 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
             <div>
               <h3 className="mb-2 text-lg font-semibold text-amber-800">
                 Важная информация

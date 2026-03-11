@@ -21,18 +21,18 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://armapokras.vercel.app"),
   title: {
-    default: `${SITE_NAME} — Автомалярка в Пятигорске | Покраска авто, кузовной ремонт`,
+    default: `${SITE_NAME} — Автомалярка в Пятигорске | Покраска авто, полировка`,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
   keywords: [
     "автомалярка Пятигорск",
     "покраска авто Пятигорск",
-    "кузовной ремонт Пятигорск",
+    "покраска Лада Hyundai Kia Пятигорск",
     "полировка авто Пятигорск",
     "покраска автомобиля КМВ",
     "автомаляр Пятигорск",
-    "ремонт кузова Пятигорск",
+    "антикор автомобиля Пятигорск",
     "локальная покраска авто",
     "полная покраска автомобиля",
   ],
@@ -70,7 +70,7 @@ const jsonLd = {
   email: EMAIL,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Ессентукская улица, 14",
+    streetAddress: "Московская улица, 31",
     addressLocality: "Пятигорск",
     addressRegion: "Ставропольский край",
     postalCode: "357500",
@@ -78,8 +78,8 @@ const jsonLd = {
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 44.037965,
-    longitude: 43.059275,
+    latitude: 44.038,
+    longitude: 43.06,
   },
   url: "https://armapokras.vercel.app",
   image: "/logo.png",
@@ -105,9 +105,9 @@ const jsonLd = {
   },
   serviceType: [
     "Покраска автомобилей",
-    "Кузовной ремонт",
     "Полировка",
     "Антикоррозийная обработка",
+    "Покраска дисков",
   ],
 };
 

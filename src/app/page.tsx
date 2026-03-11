@@ -8,35 +8,37 @@ import {
   ADDRESS,
   SERVICES,
 } from "@/lib/constants";
+import { ServiceIcon } from "@/components/SvgIcons";
+import type { IconName } from "@/components/SvgIcons";
 
-const ADVANTAGES = [
+const ADVANTAGES: { icon: IconName; title: string; desc: string }[] = [
   {
-    icon: "🏆",
+    icon: "star",
     title: "Опыт и мастерство",
-    desc: "Многолетний опыт работы с автомобилями любых марок",
+    desc: "Работаем с Лада, Hyundai, Kia, Renault и другими популярными марками",
   },
   {
-    icon: "⚙️",
+    icon: "polish",
     title: "Современное оборудование",
     desc: "Профессиональная покрасочная камера и инструменты",
   },
   {
-    icon: "🎨",
+    icon: "spray",
     title: "Качественные материалы",
-    desc: "Используем только сертифицированные краски и лаки",
+    desc: "Используем сертифицированные краски и лаки",
   },
   {
-    icon: "✅",
+    icon: "check",
     title: "Гарантия на работы",
     desc: "Предоставляем гарантию на все виды выполненных работ",
   },
   {
-    icon: "💰",
+    icon: "shield",
     title: "Честные цены",
-    desc: "Прозрачное ценообразование без скрытых платежей",
+    desc: "Доступные цены без скрытых платежей — лучшее соотношение цена/качество",
   },
   {
-    icon: "🤝",
+    icon: "car",
     title: "Индивидуальный подход",
     desc: "Подбираем оптимальное решение для каждого клиента",
   },
@@ -44,21 +46,18 @@ const ADVANTAGES = [
 
 const PORTFOLIO_ITEMS = [
   {
-    image:
-      "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=600&q=80",
-    title: "Полная покраска BMW X5",
+    image: "/portfolio/IMG_2127.JPG",
+    title: "Полная покраска Лада Приора (серебро)",
     tag: "До → После",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1494976388531-d1058494ceb8?w=600&q=80",
-    title: "Полировка Mercedes-Benz E-Class",
+    image: "/portfolio/IMG_2141.jpg",
+    title: "Полная покраска Лада Приора (чёрная)",
     tag: "До → После",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=600&q=80",
-    title: "Локальная покраска Audi A4",
+    image: "/portfolio/IMG_2142.PNG",
+    title: "Покраска капота Hyundai Solaris",
     tag: "До → После",
   },
 ];
@@ -66,15 +65,15 @@ const PORTFOLIO_ITEMS = [
 const REVIEWS = [
   {
     name: "Михаил К.",
-    text: "Отличная работа! Покрасили капот и крыло — идеальное попадание в цвет. Рекомендую!",
+    text: "Покрасили капот и крыло на Ладе — идеальное попадание в цвет. Цена адекватная, рекомендую!",
   },
   {
     name: "Анна С.",
-    text: "Делали полировку всего кузова. Машина выглядит как новая! Очень довольна результатом.",
+    text: "Делали полировку всего кузова на Hyundai Solaris. Машина как новая! Очень довольна.",
   },
   {
     name: "Дмитрий В.",
-    text: "Кузовной ремонт после ДТП. Сделали быстро и качественно, цена адекватная.",
+    text: "Полная покраска Приоры. Сделали быстро и качественно, лучшее соотношение цена/качество в городе.",
   },
 ];
 
@@ -110,12 +109,11 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/40" />
         <div className="relative z-10 container-custom text-center px-4">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 max-w-4xl mx-auto">
-            Профессиональная покраска автомобилей в Пятигорске
+            Доступная покраска автомобилей в Пятигорске
           </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Качественная покраска, кузовной ремонт и полировка вашего
-            автомобиля. Современное оборудование, опытные мастера, гарантия на
-            все работы.
+            Покраска Лада, Hyundai, Kia и других авто. Полировка, антикор.
+            Честные цены, гарантия на все работы.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -146,10 +144,8 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {ADVANTAGES.map((item) => (
               <article key={item.title} className="card p-8 text-center">
-                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-5">
-                  <span className="text-3xl" role="img" aria-label={item.title}>
-                    {item.icon}
-                  </span>
+                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-5 text-accent">
+                  <ServiceIcon name={item.icon} className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-bold text-primary mb-3">
                   {item.title}
@@ -166,13 +162,14 @@ export default function Home() {
         <div className="container-custom">
           <h2 className="heading-2 text-center mb-4">Наши услуги</h2>
           <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-12" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {SERVICES.map((service) => (
               <article key={service.slug} className="card p-8 text-center group">
-                <div className="w-16 h-16 bg-accent/10 group-hover:bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-5 transition-colors duration-300">
-                  <span className="text-3xl" role="img" aria-label={service.title}>
-                    {service.icon}
-                  </span>
+                <div className="w-16 h-16 bg-accent/10 group-hover:bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-5 text-accent transition-colors duration-300">
+                  <ServiceIcon
+                    name={service.icon as IconName}
+                    className="w-8 h-8"
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-primary mb-3">
                   {service.title}
@@ -262,7 +259,7 @@ export default function Home() {
       <section className="section-padding bg-primary">
         <div className="container-custom text-center">
           <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
-            Нужна покраска или ремонт кузова?
+            Нужна покраска или полировка?
           </h2>
           <p className="text-white/80 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
             Запишитесь на бесплатный осмотр и оценку стоимости работ
@@ -296,7 +293,7 @@ export default function Home() {
           </p>
           <div className="rounded-2xl overflow-hidden shadow-lg">
             <iframe
-              src="https://yandex.ru/map-widget/v1/?um=constructor%3Aarmapokras&source=constructor&ll=43.059275%2C44.037965&z=16&pt=43.059275%2C44.037965%2Cpm2rdm"
+              src="https://yandex.ru/map-widget/v1/?ll=43.06%2C44.038&z=16&pt=43.06%2C44.038%2Cpm2rdm"
               width="100%"
               height={400}
               style={{ border: 0 }}

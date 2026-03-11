@@ -8,81 +8,71 @@ import { WHATSAPP_LINK } from "@/lib/constants";
 type PortfolioItem = {
   id: number;
   title: string;
-  category: "Покраска" | "Кузовной ремонт" | "Полировка";
+  category: "Покраска" | "Полировка";
   image: string;
 };
 
-const FILTERS = ["Все", "Покраска", "Кузовной ремонт", "Полировка"] as const;
+const FILTERS = ["Все", "Покраска", "Полировка"] as const;
 
 const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     id: 1,
-    title: "Покраска бампера Toyota Camry",
+    title: "Полная покраска Лада Приора (серебро)",
     category: "Покраска",
-    image:
-      "https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=600&q=80",
+    image: "/portfolio/IMG_2128.JPG",
   },
   {
     id: 2,
-    title: "Полная покраска кузова BMW X5",
+    title: "Полная покраска Лада Приора (тёмно-синяя)",
     category: "Покраска",
-    image:
-      "https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=600&q=80",
+    image: "/portfolio/IMG_2132.jpg",
   },
   {
     id: 3,
-    title: "Локальная покраска крыла Mercedes",
+    title: "Полная покраска Лада Приора (чёрная)",
     category: "Покраска",
-    image:
-      "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=600&q=80",
+    image: "/portfolio/IMG_2141.jpg",
   },
   {
     id: 4,
-    title: "Рихтовка двери Kia Optima",
-    category: "Кузовной ремонт",
-    image:
-      "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=600&q=80",
+    title: "Покраска бампера",
+    category: "Покраска",
+    image: "/portfolio/IMG_2126.PNG",
   },
   {
     id: 5,
-    title: "Восстановление крыла Audi A4",
-    category: "Кузовной ремонт",
-    image:
-      "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&q=80",
+    title: "Покраска капота Hyundai Solaris",
+    category: "Покраска",
+    image: "/portfolio/IMG_2142.PNG",
   },
   {
     id: 6,
-    title: "Замена и покраска бампера Chevrolet",
-    category: "Кузовной ремонт",
-    image:
-      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80",
+    title: "Hyundai Solaris после покраски",
+    category: "Покраска",
+    image: "/portfolio/IMG_2124.jpg",
   },
   {
     id: 7,
-    title: "Абразивная полировка Lexus RX",
+    title: "Полировка фар",
     category: "Полировка",
-    image:
-      "https://images.unsplash.com/photo-1494976388531-d1058494ceb8?w=600&q=80",
+    image: "/portfolio/IMG_2134.jpg",
   },
   {
     id: 8,
-    title: "Керамическое покрытие Porsche 911",
+    title: "Полировка капота (процесс)",
     category: "Полировка",
-    image:
-      "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=600&q=80",
+    image: "/portfolio/IMG_2136.PNG",
   },
   {
     id: 9,
-    title: "Защитная полировка Honda CR-V",
+    title: "Полировка кузова",
     category: "Полировка",
-    image:
-      "https://images.unsplash.com/photo-1542362567-b07e54358753?w=600&q=80",
+    image: "/portfolio/IMG_2135.PNG",
   },
 ];
 
 const CATEGORY_COLORS: Record<string, string> = {
   "Покраска": "bg-blue-100 text-blue-700",
-  "Кузовной ремонт": "bg-orange-100 text-orange-700",
   "Полировка": "bg-purple-100 text-purple-700",
 };
 
@@ -119,8 +109,8 @@ export default function PortfolioPage() {
         <div className="mb-10 text-center">
           <h1 className="heading-1 mb-4">Примеры наших работ</h1>
           <p className="mx-auto max-w-2xl text-lg text-gray-600">
-            Каждый проект — это индивидуальный подход и безупречный результат.
-            Убедитесь в качестве нашей работы.
+            Лада, Hyundai, Kia и другие популярные марки. Каждый проект —
+            индивидуальный подход и безупречный результат.
           </p>
         </div>
 

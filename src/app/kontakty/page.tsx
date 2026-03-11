@@ -270,7 +270,7 @@ export default function ContactsPage() {
         {/* Map */}
         <div className="mt-12 overflow-hidden rounded-2xl shadow-lg">
           <iframe
-            src="https://yandex.ru/map-widget/v1/?um=constructor%3Aarmapokras&source=constructor&ll=43.059275%2C44.037965&z=16&pt=43.059275%2C44.037965%2Cpm2rdm"
+            src="https://yandex.ru/map-widget/v1/?ll=43.06%2C44.038&z=16&pt=43.06%2C44.038%2Cpm2rdm"
             width="100%"
             className="h-96 border-0"
             allowFullScreen

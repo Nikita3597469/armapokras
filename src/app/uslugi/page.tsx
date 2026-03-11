@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SITE_NAME, SERVICES, WHATSAPP_LINK, PHONE } from "@/lib/constants";
+import { SITE_NAME, SERVICES, WHATSAPP_LINK, PHONE, PHONE_RAW } from "@/lib/constants";
+import { ServiceIcon } from "@/components/SvgIcons";
+import type { IconName } from "@/components/SvgIcons";
 
 export const metadata: Metadata = {
   title: `Наши услуги — ${SITE_NAME}`,
   description:
-    "Полный спектр услуг по покраске и ремонту кузова автомобиля в Пятигорске. Покраска, кузовной ремонт, полировка и дополнительные услуги.",
+    "Покраска автомобилей Лада, Hyundai, Kia в Пятигорске. Полировка кузова и фар. Антикоррозийная обработка, покраска дисков. Доступные цены.",
 };
 
 const serviceDetails: Record<
@@ -14,46 +16,29 @@ const serviceDetails: Record<
 > = {
   pokraska: {
     description:
-      "Выполняем полную и локальную покраску автомобилей любых марок. Используем только высококачественные материалы ведущих производителей, что гарантирует идеальное совпадение цвета и долговечность покрытия. Подбор краски осуществляется с помощью компьютерной колеровки.",
+      "Полная и локальная покраска автомобилей Лада, Hyundai, Kia, Renault и других популярных марок. Работаем с любыми кузовами — от Приоры до джипов. Честные цены, гарантия на работы.",
     subServices: [
-      "Полная покраска кузова",
-      "Локальная покраска элементов",
-      "Покраска переходом",
-      "Матовая покраска",
-      "Покраска бамперов и пластиковых деталей",
-    ],
-  },
-  "kuzovnoj-remont": {
-    description:
-      "Профессиональный кузовной ремонт любой сложности — от мелких вмятин до серьёзных повреждений после ДТП. Восстанавливаем заводскую геометрию кузова на современном стапельном оборудовании. Каждый ремонт проходит многоэтапный контроль качества.",
-    subServices: [
-      "Рихтовка и выправление вмятин",
-      "Беспокрасочное удаление вмятин (PDR)",
-      "Сварочные работы",
-      "Замена элементов кузова",
-      "Восстановление геометрии кузова",
+      "Полная покраска легкового авто",
+      "Полная покраска джипа / кроссовера",
+      "Покраска элемента (бампер, крыло, дверь, капот)",
+      "Покраска пятна (локальная)",
     ],
   },
   polirovka: {
     description:
-      "Возвращаем кузову заводской блеск и обеспечиваем долговременную защиту лакокрасочного покрытия. Абразивная полировка устраняет царапины и потёртости, а защитные составы — керамика и нанокерамика — сохраняют результат на годы.",
+      "Полировка кузова и фар — возвращаем блеск и убираем мелкие царапины. Работаем с любыми марками. Доступные цены при высоком качестве.",
     subServices: [
-      "Абразивная полировка кузова",
-      "Защитная полировка",
-      "Керамическое покрытие",
-      "Нанокерамика",
-      "Полировка фар",
+      "Полировка кузова",
+      "Полировка одного элемента",
+      "Полировка пары фар",
     ],
   },
   dopolnitelnye: {
     description:
-      "Широкий перечень дополнительных услуг для комплексного ухода за вашим автомобилем. От антикоррозийной обработки до покраски дисков — всё в одном месте. Предоставляем гарантию на все виды работ.",
+      "Дополнительные услуги для ухода за вашим автомобилем. Антикоррозийная обработка и покраска дисков — надёжно и по доступной цене.",
     subServices: [
       "Антикоррозийная обработка",
-      "Подбор краски по VIN-коду",
-      "Тонировка стёкол",
-      "Оклейка защитной плёнкой",
-      "Покраска дисков",
+      "Покраска дисков (комплект)",
     ],
   },
 };
@@ -66,8 +51,8 @@ export default function UslugiPage() {
         <div className="container-custom text-center">
           <h1 className="text-3xl md:text-5xl font-bold mb-6">Наши услуги</h1>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-            Полный спектр услуг по покраске и ремонту кузова автомобиля в
-            Пятигорске
+            Покраска, полировка и доп. услуги для Лада, Hyundai, Kia и других
+            авто в Пятигорске. Доступные цены.
           </p>
         </div>
       </section>
@@ -83,13 +68,12 @@ export default function UslugiPage() {
                   <div className="flex flex-col lg:flex-row lg:items-start gap-8">
                     {/* Icon & Title */}
                     <div className="flex-shrink-0 text-center lg:text-left">
-                      <span
-                        className="text-6xl block mb-4"
-                        role="img"
-                        aria-label={service.title}
-                      >
-                        {service.icon}
-                      </span>
+                      <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto lg:mx-0 text-accent">
+                        <ServiceIcon
+                          name={service.icon as IconName}
+                          className="w-8 h-8"
+                        />
+                      </div>
                     </div>
 
                     {/* Content */}
@@ -149,8 +133,8 @@ export default function UslugiPage() {
             Нужна консультация?
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-8">
-            Свяжитесь с нами удобным способом — оценим объём работ и рассчитаем
-            стоимость бесплатно
+            Свяжитесь с нами — оценим объём работ и рассчитаем стоимость
+            бесплатно
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
@@ -164,7 +148,7 @@ export default function UslugiPage() {
               </svg>
               Написать в WhatsApp
             </a>
-            <a href={`tel:${PHONE.replace(/\D/g, "")}`} className="btn-outline border-white text-white hover:bg-white hover:text-primary">
+            <a href={`tel:${PHONE_RAW}`} className="btn-outline border-white text-white hover:bg-white hover:text-primary">
               {PHONE}
             </a>
           </div>

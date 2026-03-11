@@ -12,7 +12,6 @@ import {
 
 const SERVICE_LINKS = [
   { href: "/uslugi/pokraska", label: "Покраска авто" },
-  { href: "/uslugi/kuzovnoj-remont", label: "Кузовной ремонт" },
   { href: "/uslugi/polirovka", label: "Полировка" },
   { href: "/uslugi/dopolnitelnye", label: "Доп. услуги" },
 ];
@@ -34,8 +33,8 @@ export default function Footer() {
               />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-gray-400">
-              Профессиональная автомалярка в&nbsp;Пятигорске. Качественная покраска, кузовной ремонт
-              и&nbsp;полировка с&nbsp;гарантией на&nbsp;работы.
+              Доступная автомалярка в&nbsp;Пятигорске. Покраска Лада, Hyundai, Kia и&nbsp;других авто.
+              Полировка, антикор. Гарантия на&nbsp;работы.
             </p>
           </div>
 
