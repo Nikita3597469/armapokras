@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SITE_NAME, WHATSAPP_LINK, PHONE, PHONE_RAW } from "@/lib/constants";
 import { ServiceIcon } from "@/components/SvgIcons";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 export const metadata: Metadata = {
   title: `Полировка автомобиля в Пятигорске — ${SITE_NAME}`,
@@ -89,14 +90,14 @@ export default function PolirovkaPage() {
             Доступные цены.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a
+            <WhatsAppLink
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
             >
               Записаться
-            </a>
+            </WhatsAppLink>
             <a
               href={`tel:${PHONE_RAW}`}
               className="btn-outline border-white text-white hover:bg-white hover:text-primary"
@@ -143,14 +144,14 @@ export default function PolirovkaPage() {
                     </ul>
                     <div className="flex flex-wrap items-center gap-4">
                       <span className="text-2xl font-bold text-accent">{type.price}</span>
-                      <a
+                      <WhatsAppLink
                         href={WHATSAPP_LINK}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn-primary text-sm py-2 px-6"
                       >
                         Заказать
-                      </a>
+                      </WhatsAppLink>
                     </div>
                   </div>
                 </div>
@@ -170,14 +171,14 @@ export default function PolirovkaPage() {
             Напишите в WhatsApp или позвоните — рассчитаем стоимость
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a
+            <WhatsAppLink
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary inline-flex items-center gap-2"
             >
               Написать в WhatsApp
-            </a>
+            </WhatsAppLink>
             <a href={`tel:${PHONE_RAW}`} className="btn-outline border-white text-white hover:bg-white hover:text-primary">
               {PHONE}
             </a>

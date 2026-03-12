@@ -1,5 +1,6 @@
 "use client";
 
+import { track } from "@vercel/analytics";
 import { WHATSAPP_LINK } from "@/lib/constants";
 
 const MESSAGE = "Здравствуйте! Хочу записаться на осмотр автомобиля.";
@@ -7,12 +8,17 @@ const MESSAGE = "Здравствуйте! Хочу записаться на о
 export default function WhatsAppButton() {
   const href = `${WHATSAPP_LINK}?text=${encodeURIComponent(MESSAGE)}`;
 
+  const handleClick = () => {
+    track("whatsapp_click");
+  };
+
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Написать в WhatsApp"
+      onClick={handleClick}
       className="group fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-110"
     >
       {/* Pulse ring */}

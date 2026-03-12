@@ -13,6 +13,7 @@ import {
   YANDEX_MAP_LINK,
   GOOGLE_MAP_LINK,
 } from "@/lib/constants";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 export default function ContactsPage() {
   const [form, setForm] = useState({
@@ -101,7 +102,7 @@ export default function ContactsPage() {
             </a>
 
             {/* WhatsApp */}
-            <a
+            <WhatsAppLink
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
@@ -118,7 +119,7 @@ export default function ContactsPage() {
                   Написать сообщение
                 </p>
               </div>
-            </a>
+            </WhatsAppLink>
 
             {/* Email */}
             <a

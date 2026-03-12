@@ -12,6 +12,7 @@ import {
   GOOGLE_MAP_LINK,
 } from "@/lib/constants";
 import { ServiceIcon } from "@/components/SvgIcons";
+import WhatsAppLink from "@/components/WhatsAppLink";
 import type { IconName } from "@/components/SvgIcons";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
 
@@ -163,14 +164,14 @@ export default function Home() {
             Честные цены, гарантия на все работы.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <WhatsAppLink
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary text-lg"
             >
               Записаться на осмотр
-            </a>
+            </WhatsAppLink>
             <a
               href="#uslugi"
               className="btn-outline border-white text-white hover:bg-white hover:text-primary text-lg"
@@ -297,14 +298,14 @@ export default function Home() {
             Запишитесь на бесплатный осмотр и оценку стоимости работ
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <WhatsAppLink
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary text-lg"
             >
               Написать в WhatsApp
-            </a>
+            </WhatsAppLink>
             <a
               href={`tel:${PHONE_RAW}`}
               className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold py-3 px-8 rounded-lg transition-all duration-300 text-lg"
