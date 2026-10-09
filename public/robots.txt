@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://armapokras.vercel.app/sitemap.xml
+
+Sitemap: https://www.armapokras.ru/sitemap.xml

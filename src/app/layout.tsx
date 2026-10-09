@@ -9,6 +9,7 @@ import CookieBanner from "@/components/CookieBanner";
 import {
   SITE_NAME,
   SITE_DESCRIPTION,
+  SITE_URL,
   PHONE,
   EMAIL,
 } from "@/lib/constants";
@@ -20,7 +21,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://armapokras.vercel.app"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: `${SITE_NAME} — Автомалярка в Пятигорске | Покраска авто, полировка`,
     template: `%s | ${SITE_NAME}`,
@@ -43,6 +44,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ru_RU",
     siteName: SITE_NAME,
+    url: SITE_URL,
     title: `${SITE_NAME} — Профессиональная покраска автомобилей в Пятигорске`,
     description: SITE_DESCRIPTION,
     images: [{ url: "/logo.png", width: 1200, height: 630, alt: SITE_NAME }],
@@ -58,10 +60,14 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   alternates: {
-    canonical: "https://armapokras.vercel.app",
+    canonical: SITE_URL,
   },
   icons: {
-    icon: "/icon.jpg",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon.jpg", type: "image/jpeg", sizes: "512x512" },
+    ],
     apple: "/apple-icon.jpg",
   },
 };
@@ -86,8 +92,8 @@ const jsonLd = {
     latitude: 44.048374,
     longitude: 43.058821,
   },
-  url: "https://armapokras.vercel.app",
-  image: "/logo.png",
+  url: SITE_URL,
+  image: `${SITE_URL}/logo.png`,
   priceRange: "₽₽",
   openingHoursSpecification: [
     {
@@ -124,9 +130,9 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <head>
-        <link rel="icon" href="/icon.jpg?v=2" type="image/jpeg" />
-        <link rel="shortcut icon" href="/icon.jpg?v=2" type="image/jpeg" />
-        <link rel="apple-touch-icon" href="/apple-icon.jpg?v=2" />
+        <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+        <link rel="icon" href="/favicon-32.png?v=3" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-icon.jpg?v=3" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

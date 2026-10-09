@@ -1,4 +1,6 @@
 export const SITE_NAME = "АрмаПокрас";
+/** Основной домен для SEO (canonical, sitemap, JSON-LD). www — канонический хост. */
+export const SITE_URL = "https://www.armapokras.ru";
 export const SITE_DESCRIPTION =
   "Доступная автомалярка в Пятигорске. Покраска автомобилей Лада, Hyundai, Kia и других. Полировка, антикор. Честные цены, гарантия на работы.";
 export const PHONE = "+7 (962) 424-96-96";
