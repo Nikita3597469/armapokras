@@ -51,27 +51,27 @@ const ADVANTAGES: { icon: IconName; title: string; desc: string }[] = [
 
 const PORTFOLIO_ITEMS = [
   {
+    imageBefore: "/portfolio/work_2026_10_06.jpg",
+    imageAfter: "/portfolio/work_2026_10_08.jpg",
+    title: "Покраска бампера (серебро)",
+    tag: "До → После",
+  },
+  {
+    imageBefore: "/portfolio/work_2026_10_04.jpg",
+    imageAfter: "/portfolio/work_2026_10_07.jpg",
+    title: "Покраска крыла",
+    tag: "До → После",
+  },
+  {
     imageBefore: "/portfolio/IMG_2127.JPG",
     imageAfter: "/portfolio/IMG_2128.JPG",
     title: "Полная покраска Лада Приора (серебро)",
     tag: "До → После",
   },
   {
-    imageBefore: "/portfolio/IMG_2140.jpg",
-    imageAfter: "/portfolio/IMG_2141.jpg",
-    title: "Полная покраска Лада Приора (чёрная)",
-    tag: "До → После",
-  },
-  {
     imageBefore: "/portfolio/IMG_2142.PNG",
     imageAfter: "/portfolio/IMG_2124.jpg",
     title: "Покраска капота Hyundai Solaris",
-    tag: "До → После",
-  },
-  {
-    imageBefore: "/portfolio/IMG_21442.jpg",
-    imageAfter: "/portfolio/IMG_21442.jpg",
-    title: "Покраска джипа",
     tag: "До → После",
   },
 ];

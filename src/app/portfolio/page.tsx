@@ -11,6 +11,7 @@ type PortfolioItem = {
   title: string;
   category: "Покраска" | "Полировка";
   image: string;
+  video?: string;
 };
 
 const FILTERS = ["Все", "Покраска", "Полировка"] as const;
@@ -18,60 +19,115 @@ const FILTERS = ["Все", "Покраска", "Полировка"] as const;
 const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     id: 1,
+    title: "Покраска бампера (синий металлик)",
+    category: "Покраска",
+    image: "/portfolio/video/work_2026_10_01-poster.jpg",
+    video: "/portfolio/video/work_2026_10_01.mp4",
+  },
+  {
+    id: 2,
+    title: "Покраска бампера (серебро)",
+    category: "Покраска",
+    image: "/portfolio/work_2026_10_08.jpg",
+  },
+  {
+    id: 3,
+    title: "Покраска крыла",
+    category: "Покраска",
+    image: "/portfolio/work_2026_10_07.jpg",
+  },
+  {
+    id: 4,
+    title: "Подготовка кузова к покраске",
+    category: "Покраска",
+    image: "/portfolio/work_2026_10_01.jpg",
+  },
+  {
+    id: 5,
+    title: "Подготовка крышки багажника",
+    category: "Покраска",
+    image: "/portfolio/work_2026_10_02.jpg",
+  },
+  {
+    id: 6,
+    title: "Восстановление Lada (задняя часть)",
+    category: "Покраска",
+    image: "/portfolio/work_2026_10_03.jpg",
+  },
+  {
+    id: 7,
+    title: "Подготовка крыла под покраску",
+    category: "Покраска",
+    image: "/portfolio/work_2026_10_04.jpg",
+  },
+  {
+    id: 8,
+    title: "Покраска дверей",
+    category: "Покраска",
+    image: "/portfolio/work_2026_10_05.jpg",
+  },
+  {
+    id: 9,
+    title: "Грунтовка бампера",
+    category: "Покраска",
+    image: "/portfolio/work_2026_10_06.jpg",
+  },
+  {
+    id: 10,
     title: "Полная покраска Лада Приора (серебро)",
     category: "Покраска",
     image: "/portfolio/IMG_2128.JPG",
   },
   {
-    id: 2,
+    id: 11,
     title: "Полная покраска Лада Приора (тёмно-синяя)",
     category: "Покраска",
     image: "/portfolio/IMG_2132.jpg",
   },
   {
-    id: 3,
+    id: 12,
     title: "Полная покраска Лада Приора (чёрная)",
     category: "Покраска",
     image: "/portfolio/IMG_2141.jpg",
   },
   {
-    id: 4,
+    id: 13,
     title: "Покраска бампера",
     category: "Покраска",
     image: "/portfolio/IMG_2126.PNG",
   },
   {
-    id: 5,
+    id: 14,
     title: "Покраска капота Hyundai Solaris",
     category: "Покраска",
     image: "/portfolio/IMG_2142.PNG",
   },
   {
-    id: 6,
+    id: 15,
     title: "Hyundai Solaris после покраски",
     category: "Покраска",
     image: "/portfolio/IMG_2124.jpg",
   },
   {
-    id: 7,
+    id: 16,
     title: "Покраска джипа",
     category: "Покраска",
     image: "/portfolio/IMG_21442.jpg",
   },
   {
-    id: 8,
+    id: 17,
     title: "Полировка фар",
     category: "Полировка",
     image: "/portfolio/IMG_2134.jpg",
   },
   {
-    id: 9,
+    id: 18,
     title: "Полировка капота (процесс)",
     category: "Полировка",
     image: "/portfolio/IMG_2136.PNG",
   },
   {
-    id: 10,
+    id: 19,
     title: "Полировка кузова",
     category: "Полировка",
     image: "/portfolio/IMG_2135.PNG",
@@ -145,14 +201,29 @@ export default function PortfolioPage() {
               key={item.id}
               className="card group animate-[fadeIn_0.3s_ease-out]"
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+              <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+                {item.video ? (
+                  <video
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    poster={item.image}
+                    preload="metadata"
+                    aria-label={item.title}
+                  >
+                    <source src={item.video} type="video/mp4" />
+                  </video>
+                ) : (
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <div className="absolute bottom-0 left-0 right-0 translate-y-4 p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                   <p className="text-sm font-medium text-white">{item.title}</p>
